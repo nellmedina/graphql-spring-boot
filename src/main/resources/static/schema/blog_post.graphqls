@@ -1,0 +1,19 @@
+type BlogPost {
+
+    id: Int!
+
+    title: String
+
+    content: String
+
+    createdDate: Date
+
+    createdBy: BlogUser
+
+    blogFollowers: [BlogFollower]
+}
+
+extend type Query {
+
+     post(id: Int!): BlogPost
+}

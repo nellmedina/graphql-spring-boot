@@ -1,0 +1,43 @@
+scalar Date
+
+type BlogUser {
+
+    id: Long!
+
+    firstName: String!
+
+    lastName: String!
+
+    city: String
+
+    blogPosts: [BlogPost]
+
+    blogPosts2: [BlogPost]
+
+    onlineStatus: OnlineStatus
+}
+
+enum OnlineStatus {
+  ACTIVE
+  OFFLINE
+}
+
+input AddBlogUserInput {
+    firstName: String!
+    lastName: String!
+    city: String!
+    onlineStatus: OnlineStatus!
+}
+
+
+type Query {
+
+     user(id: Int!): BlogUser
+
+     users: [BlogUser!]!
+}
+
+type Mutation {
+
+    addBlogUser(input: AddBlogUserInput!): BlogUser!
+}

@@ -1,0 +1,10 @@
+type BlogFollower {
+
+    id: Int!
+
+    name: String
+}
+
+extend type Query {
+    follower(id: Int!): BlogFollower
+}

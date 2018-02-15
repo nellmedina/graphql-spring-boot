@@ -1,0 +1,40 @@
+# comment out below if web security is added to dependency
+#security:
+    #basic:
+        #enabled: true
+    #user:
+      #password: admin
+      #name: admin
+      #role: ADMIN, USER
+
+server:
+    port: 9978
+    # Must run on / otherwise graphiQL does not work currently
+    context-path: /
+
+graphiql:
+    mapping: /graphql-client
+    endpoint: /graphql-api
+    enabled: true
+    pageTitle: Blog GraphiQL
+
+graphql:
+    servlet:
+       mapping: /graphql-api
+       enabled: true
+       corsEnabled: true
+
+spring:
+    profiles:
+        active: dev
+    datasource:
+        url: jdbc:postgresql://localhost:5433/viseo
+        driverClassName: org.postgresql.Driver
+        username: viseo
+        password:
+    jpa:
+        database: POSTGRESQL
+        database-platform: org.hibernate.dialect.PostgreSQLDialect
+        hibernate.ddl-auto:  none
+        show-sql: true
+
